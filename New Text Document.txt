@@ -1,0 +1,1 @@
+https://codingdriver.com/custom-login-register-forget-password-functionality-in-laravel-without-auth.html
