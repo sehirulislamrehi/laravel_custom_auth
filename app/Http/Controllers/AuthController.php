@@ -72,7 +72,8 @@ class AuthController extends Controller
         DB::table('password_resets')->insert(
             ['email'=>$request->email,'token' => $token, 'created_at' => Carbon::now()]
         );
-        Mail::send('verify',['token' => $token], function($message) use ($request){
+        $email = $request->email;
+        Mail::send('verify',['token' => $token, 'email' => $email], function($message) use ($request){
             $message->from('mdsehirulislamrehi@gmail.com');
             $message->to($request->email);
             $message->subject('Reset Password Notification');
@@ -81,7 +82,7 @@ class AuthController extends Controller
         return redirect()->route('get.email');
     }
 
-    public function getPassword($token){
-        return view('reset',['token' => $token]);
+    public function getPassword($token, $email){
+        return view('reset',['token' => $token, 'email' => $email]);
     }
 }

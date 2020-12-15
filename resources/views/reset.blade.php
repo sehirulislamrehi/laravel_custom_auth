@@ -56,7 +56,7 @@
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control @error('email') is-valid @enderror" placeholder="Email Address" name="email" value="{{ $email ?? old('email') }}">
+                    <input type="email" readonly class="form-control @error('email') is-valid @enderror" placeholder="Email Address" name="email" value="{{ $email }}">
                 </div>
                 <div class="form-group">
                     <label>Password</label>
@@ -67,7 +67,7 @@
                     <input type="password" class="form-control" name="password_confirmation">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success" style="margin-top: 15px">Login</button>
+                    <button type="submit" class="btn btn-success" style="margin-top: 15px">Reset</button>
                 </div>
             </form>
         </div>
