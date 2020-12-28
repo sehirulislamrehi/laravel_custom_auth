@@ -85,4 +85,22 @@ class AuthController extends Controller
     public function getPassword($token, $email){
         return view('reset',['token' => $token, 'email' => $email]);
     }
+
+
+    public function reset_password(Request $request, $email){
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|confirmed|min:6',
+        ]);
+        $user = User::where('email', $email)->first();
+        $user->password = Hash::make($request->password);
+        if($user->save()){
+            Auth::logout();
+            $request->session()->flash('reset','Your password is changed');
+            return redirect()->route('login.view');
+        }
+    }
+
 }
+
+

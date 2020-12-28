@@ -51,6 +51,13 @@
                 </ul>
             </div>
             @endif
+            @if( session()->has('reset') )
+            <div class="alert alert-success">
+                <ul>
+                    <li>{{ session()->get('reset') }}</li>
+                </ul>
+            </div>
+            @endif
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="form-group">

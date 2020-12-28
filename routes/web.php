@@ -23,6 +23,7 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::get('forget-password',[AuthController::class,'getEmail'])->name('get.email');
 Route::post('forget-password',[AuthController::class,'postEmail'])->name('post.email');
 Route::get('reset-password/{token}/{email}',[AuthController::class,'getPassword'])->name('get.password');
+Route::post('reset-password/{email}',[AuthController::class,'reset_password'])->name('password.reset');
 
 Route::group(['prefix'=>'dashboard','middleware'=>'authenticate'], function(){
     Route::get('/',[AuthController::class,'dashboard'])->name('dashboard');

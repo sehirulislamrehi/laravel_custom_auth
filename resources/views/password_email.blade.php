@@ -44,6 +44,13 @@
                 </ul>
             </div>
             @endif
+            @if( session()->has('send') )
+            <div class="alert alert-success">
+                <ul>
+                    <li>{{ session()->get('send') }}</li>
+                </ul>
+            </div>
+            @endif
             <form action="{{ route('post.email') }}" method="post">
                 @csrf
                 <div class="form-group">

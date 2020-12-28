@@ -51,7 +51,7 @@
                 </ul>
             </div>
             @endif
-            <form action="{{ route('login') }}" method="post">
+            <form action="{{ route('password.reset',$email) }}" method="post">
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="form-group">
