@@ -48,6 +48,7 @@
                 </ul>
             </div>
             @endif
+            <h2 class="text-center">Register Here</h2>
             <form action="{{ route('register') }}" method="post">
                 @csrf
                 <div class="form-group">

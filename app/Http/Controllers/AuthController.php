@@ -82,8 +82,16 @@ class AuthController extends Controller
         return redirect()->route('get.email');
     }
 
-    public function getPassword($token, $email){
-        return view('reset',['token' => $token, 'email' => $email]);
+    public function getPassword($token, $email, Request $request){
+        $all_token = DB::table('password_resets')->get();
+        foreach( $all_token as $single_token ){
+            if( $single_token->token == $token ){
+                return view('reset',['token' => $token, 'email' => $email]);
+            }
+        }
+        $request->session()->flash('timeout','Session Timeout. Please send reset password link again');
+        return redirect()->route('get.email');
+        
     }
 
 

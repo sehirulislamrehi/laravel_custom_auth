@@ -51,6 +51,7 @@
                 </ul>
             </div>
             @endif
+            <h2 class="text-center">Reset your password</h2>
             <form action="{{ route('password.reset',$email) }}" method="post">
                 @csrf
                 <input type="hidden" name="token" value="{{ $token }}">

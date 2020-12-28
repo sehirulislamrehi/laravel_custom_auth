@@ -51,6 +51,14 @@
                 </ul>
             </div>
             @endif
+            @if( session()->has('timeout') )
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>{{ session()->get('timeout') }}</li>
+                    </ul>
+                </div>
+                @endif
+            <h2 class="text-center">Password email</h2>
             <form action="{{ route('post.email') }}" method="post">
                 @csrf
                 <div class="form-group">
@@ -61,6 +69,7 @@
                     <button type="submit" class="btn btn-success" style="margin-top: 15px">Send Reset Password Link</button>
                 </div>
             </form>
+            <a href="{{ route('login.view') }}">Login Here</a>
         </div>
     </section>
 

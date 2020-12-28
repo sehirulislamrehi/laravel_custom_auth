@@ -58,6 +58,7 @@
                 </ul>
             </div>
             @endif
+            <h2 class="text-center">Login Here</h2>
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="form-group">
